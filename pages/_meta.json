@@ -1,7 +1,6 @@
 {
-  "index": "Start",
-  "README": "General Information",
-  "MetaExtensions": "What are Meta Tags?",
-  "WHATWG": "What is WHATWG?",
-  "metatags": "Meta Tags"
+  "index": "Welcome to RACINE DOCS",
+  "AboutRacine": "About Racine",
+  "AdminGuide": "Admin Guide",
+  "DevGuide": "Development Guide"
 }

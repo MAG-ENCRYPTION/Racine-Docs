@@ -35,6 +35,7 @@
 }
 
 .Title {
+  color: #72aa24;
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -43,4 +44,11 @@
   &:after {
     content: " →";
   }
+}
+.Icon {
+  margin-right: 8px;
+  margin-bottom:20px;
+  margin-top:1px;
+  height:70px;
+  width:70px;
 }

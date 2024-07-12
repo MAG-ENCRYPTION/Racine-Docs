@@ -13,6 +13,9 @@
   "license": "MIT",
   "homepage": "https://faq.frontendnet.work",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@napi-rs/simple-git": "^0.1.16",
     "million": "latest",
     "next": "^14.2.4",

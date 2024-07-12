@@ -6,9 +6,9 @@ import ThemeSwitch from "./components/ThemeSwitch";
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
-  docsRepositoryBase: "https://github.com/frontendnetwork/faq/tree/main/",
+  docsRepositoryBase: "https://github.com/MAG-ENCRYPTION/Racine-Docs",
   footer: {
-    text: <>This work is licensed under CC BY 4.0 by FrontendNetwork</>,
+    text: <>This is a work of 4GI Network Team in ENSPY GI2025</>,
   },
   themeSwitch: {
     component: null,
@@ -19,7 +19,7 @@ const config: DocsThemeConfig = {
         <ThemeSwitch />
         <div className="max-lg:hidden">
           <a
-            href="https://github.com/frontendnetwork/faq"
+            href="https://github.com/MAG-ENCRYPTION/Racine-Docs"
             target="_blank"
             rel="noreferrer"
             className="nx-p-2 nx-text-current"
@@ -47,7 +47,7 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter();
     if (asPath !== "/") {
       return {
-        titleTemplate: "%s – FEN MetaTag Documentation",
+        titleTemplate: "%s – RACINE Documentation",
       };
     } else {
       return {
