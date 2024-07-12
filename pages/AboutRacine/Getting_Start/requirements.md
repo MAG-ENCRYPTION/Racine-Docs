@@ -1,81 +1,123 @@
-# Racine Project
+# REQUIREMENTS
 
-## Requirements
+This guide will provide you with instructions to install all the dependencies required to run the Racine project on your system.
 
-To deploy the Racine project, please ensure the following components are installed:
+## Prerequisites
 
-- **Operating System**: Ubuntu Linux
-  - Distribution ID: Ubuntu
-  - Description: Ubuntu 18.04.6 LTS
-  - Release: 18.04
-  - Codename: Bionic
+Before you begin, make sure your system meets the following requirements:
 
-- **Python**: Version 2 or Version 3
+- Operating System: [`Ubuntu Linux 18.04.6 LTS or Higher`](https://releases.ubuntu.com/18.04/?C=N;O=D)
+- [`Python 3.6 or higher`](https://www.python.org/downloads/release/python-370/) 
 
-- **Ryu**: Version 4.15
-  - [Ryu GitHub Repository](https://github.com/faucetsdn/ryu)
+## Installing Dependencies
 
-- **D-ITG**: Traffic generator and receiver
-  - [D-ITG GitHub Repository](https://github.com/GridVoB/D-ITG)
+Follow the steps below to install the necessary dependencies:
 
-- **Mininet WiFi**: Version 2.3.0.dev6
-  - [Mininet WiFi GitHub Repository](https://github.com/intrig-unicamp/mininet-wifi)
+### 1. Ryu
 
-If any of the above components are missing, you can use a pre-configured virtual machine that contains all the necessary dependencies. Please download the virtual machine image from [VM Download Page](https://example.com/vm-download) and follow the provided instructions to set it up.
+Ryu is the OpenFlow controller used by the Racine project.
+Installing Ryu is a straightforward process. This guide will walk you through the steps to install Ryu on your system.
+To install the prerequisites on Ubuntu, open a terminal and run the following command:
 
-## Folder Structure
+```shell
+% apt install gcc python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev zlib1g-dev
+```
 
-The project folder, named "PROJET-RESEAU," has the following structure:
+#### Installation Steps
+You can install Ryu either using pip or by cloning the source code from GitHub.
 
-- **binary**: Contains the binary file of the machine learning model used.
-- **dataset**: Contains all the datasets used for model training.
-- **Documents**: Contains important project-related documents such as reports and useful books.
-  - [TP_4GI_SD_WMN.pdf](Documents/TP_4GI_SD_WMN.pdf): Document providing guidance on Mininet, Ryu, and OpenFlow.
-  - [D_ITG-2.8.1-manual.pdf](Documents/D_ITG-2.8.1-manual.pdf): Manual for D-ITG traffic generation.
-- **interface**: Contains the code for the project's user interface.
-- **Notebook**: Contains various notebooks used during the machine learning algorithm training phase.
-- **src**: Contains the project launch files:
-  - **classifier.py**: Module for classifying flows based on service types. (Note: This file calls a binary file present in the `binary` folder)
-  - **file_write3.py**: Module for writing log files.
-  - **Flow.py**: Class for retrieving packet flows.
-  - **GraphUtils.py**: Class for the project's data structure.
-  - **wifi_AP_ST_Topo.py**: Contains the physical network topology.
-  - **wifi_classifier.py**: Module for generating datasets and creating an external classifier.
-  - **wifi_monitor_v8.py**: Ryu controller with new rules and functionalities.
+- Option 1: Installation using pip
+  1. Open a terminal and run the following command to install Ryu using pip:
 
-## Project Launch
+  ```shell
+  % pip3 install ryu
+  ```
 
-To launch the Racine project, follow these steps:
+  2. Wait for the installation to complete. Once finished, Ryu will be installed on your system.
 
-1. Open two Ubuntu terminals using the command: `Ctrl + Alt + T`.
-2. Switch to the superuser mode by executing the command: `sudo su` and enter your password.
-3. In each terminal, navigate to the project's source code directory: `cd Documents/PROJET_RESEAU/src`.
-4. In Terminal 1, launch the classifier:
-   ```bash
-   python3 classifier.py "unsupervised"
-   ```
-   or
-   ```bash
-   python3 classifier.py "supervised"
-   ```
-5. In Terminal 2, launch the Mininet WiFi topology:
-   ```bash
-   python2 wifi_AP_ST_Topo.py
-   ```
-   For a better understanding of Mininet, Ryu, and OpenFlow, refer to the [TP_4GI_SD_WMN.pdf](https://www.traffic.comics.unina.it/software/ITG/manual/D-ITG-2.8.1-manual.pdf)
-6. Once the two terminals are open, you can generate traffic from host h1 (10.0.0.1) to host h2 (10.0.0.2). h1 will act as the sender, and h2 will act as the receiver.
-   For example, to generate DNS traffic:
-   - In the xterm for h2, enter the following command:
-     ```bash
-     ITGRecv -l recv.log
-     ```
-   - In the xterm for h1, enter the following command:
-     ```bash
-     ITGSend -t 15000 -a 10.0.0.2 -rp 10003 DNS
-     ```
-   For more information on traffic generation using D-ITG, refer to the [D_ITG-2.8.1-manual.pdf](Documents/D_ITG-2.8.1-manual.pdf) document.
+- Option 2: Installation from source code
+  1. Open a terminal and run the following commands to clone the Ryu repository from GitHub and navigate to the cloned directory:
 
-Please ensure that all the required components and dependencies are properly installed and configured before launching the project.
+  ```shell
+  % git clone https://github.com/faucetsdn/ryu.git
+  % cd ryu
+  ```
 
+  2. Run the following command to install Ryu using pip:
 
+  ```shell
+  % pip install .
+  ```
 
+  3. Wait for the installation to complete. Once finished, Ryu will be installed on your system.
+
+#### Optional Requirements
+Ryu has some optional features that require additional packages. If you want to use these features, you need to install the required packages.
+
+1. Open a terminal and run the following command to install the optional requirements:
+
+```shell
+% pip install -r tools/optional-requires
+```
+
+2. Refer to the `tools/optional-requires` file for more details on the optional requirements.
+
+### Writing Ryu Applications
+To write your own Ryu application, you can refer to the "Writing Ryu Application" document. After writing your application, follow these steps to run it:
+
+1. Open a terminal and navigate to the directory where your Ryu application file (`yourapp.py`) is located.
+
+2. Run the following command to start the Ryu manager and execute your application:
+
+```shell
+% ryu-manager yourapp.py
+```
+
+*Note: The instructions provided in this guide assume a Linux-based system. If you are using a different operating system, please refer to the appropriate documentation for installation instructions.*
+
+### 2. D-ITG
+
+D-ITG is used for generating traffic in the Racine project.
+
+- Clone the D-ITG GitHub repository:
+
+  ```bash
+  git clone https://github.com/GridVoB/D-ITG.git
+  ```
+
+- Navigate to the D-ITG directory:
+
+  ```bash
+  cd D-ITG
+  ```
+
+- Compile and install D-ITG:
+
+  ```bash
+  make
+  sudo make install
+  ```
+
+### 3. Mininet WiFi
+
+Mininet WiFi is a wireless network emulator based on Mininet.
+
+- Clone the Mininet WiFi GitHub repository:
+
+  ```bash
+  git clone https://github.com/intrig-unicamp/mininet-wifi.git
+  ```
+
+- Navigate to the Mininet WiFi directory:
+
+  ```bash
+  cd mininet-wifi
+  ```
+
+- Install Mininet WiFi:
+
+  ```bash
+  sudo util/install.sh -Wlnfv
+  ```
+
+After following these steps, all the required dependencies for the Racine project should be installed on your system.
