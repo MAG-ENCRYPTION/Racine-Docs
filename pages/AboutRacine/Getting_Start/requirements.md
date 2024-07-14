@@ -6,8 +6,8 @@ This guide will provide you with instructions to install all the dependencies re
 
 Before you begin, make sure your system meets the following requirements:
 
-- Operating System: [`Ubuntu Linux 18.04.6 LTS or Higher`](https://releases.ubuntu.com/18.04/?C=N;O=D)
-- [`Python 3.6 or higher`](https://www.python.org/downloads/release/python-370/) 
+[![Ubuntu Linux](https://img.shields.io/badge/Ubuntu%20Linux-18.04.6%20LTS%20or%20Higher-blue.svg?logo=ubuntu)](https://releases.ubuntu.com/18.04/?C=N;O=D) <br>
+[![Python](https://img.shields.io/badge/Python-3.6%20or%20higher-blue.svg?logo=python)](https://www.python.org/downloads/release/python-370/)
 
 ## Installing Dependencies
 
@@ -46,7 +46,7 @@ You can install Ryu either using pip or by cloning the source code from GitHub.
   2. Run the following command to install Ryu using pip:
 
   ```shell
-  % pip install .
+  % pip3 install .
   ```
 
   3. Wait for the installation to complete. Once finished, Ryu will be installed on your system.
@@ -57,7 +57,7 @@ Ryu has some optional features that require additional packages. If you want to 
 1. Open a terminal and run the following command to install the optional requirements:
 
 ```shell
-% pip install -r tools/optional-requires
+% pip3 install -r tools/optional-requires
 ```
 
 2. Refer to the `tools/optional-requires` file for more details on the optional requirements.

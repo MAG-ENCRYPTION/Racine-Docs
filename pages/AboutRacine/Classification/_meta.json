@@ -1,6 +1,5 @@
 {
   "dataset": "Dataset for Machine Learning model",
   "notebook": "NoteBook",
-  "classifier": "Pyhton Classifier",
-  "binary": "Generated binary data"
+  "classifier": "Python Classifier"
 }

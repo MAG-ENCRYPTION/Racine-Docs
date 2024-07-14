@@ -8,7 +8,7 @@ export default function Cards() {
     <div className={classes.Cards}>
       <div className={classes.Card}>
         {" "}
-        <Link href="/AboutRacine/Getting_Start/quickStart">
+        <Link href="/AboutRacine/Getting_Start/requirements">
           <span className={classes.Title}>
             <FontAwesomeIcon icon={faSitemap} className={classes.Icon} /> 
             Getting Start

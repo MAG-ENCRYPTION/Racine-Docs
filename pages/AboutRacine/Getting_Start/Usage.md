@@ -3,7 +3,7 @@
 This project follows a specific structure to organize its files and directories. Here is an overview of the RACINE project structure:
 
 ```
-PROJET-RESEAU/
+Racine-Project/
 ├── binary/
 │   └── [binary_file]       # Binary file of the machine learning model
 ├── dataset/
@@ -56,4 +56,16 @@ Feel free to explore the directories and files of the RACINE project to understa
 
 For more detailed information, consult the relevant files and documentation within each directory.
 
-Please note that the directory and file names provided above are placeholders and should be replaced with the actual names used in your RACINE project.
+Please note that the directory and file names provided above are placeholders and should be replaced with the actual names used in your RACINE project.<br><br>
+
+<div style="border: 10px solid #c54747; padding: 10px;">
+<em><b>Notice:</b></em> 🚧🚧🚧🚧
+
+<p style="color: red">Before observe each RACINE's features with ryu controller you have to launch mininet's topology in 
+`wifi_AP_ST_Topo.py` otherwise you will observe anythings in your ryu app </p><br />
+
+```shell 
+python3 wifi_AP_ST_Topo.py
+```
+
+</div>
